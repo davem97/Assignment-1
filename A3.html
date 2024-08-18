@@ -10,58 +10,59 @@
             function cat() {     
                 var displayField = document.getElementById("displayTextBox"); 
                 displayField.value = "User clicks Cat"; 
-
                 var displayText = document.getElementById("displayText");
                 displayText.innerText = "User clicks Cat"; 
             }           
 
-        function dog() {   
-            var displayField = document.getElementById("displayTextBox"); 
-            displayField.value = "User clicks Dog"; 
+            function dog() {   
+                var displayField = document.getElementById("displayTextBox"); 
+                displayField.value = "User clicks Dog"; 
+                var displayText = document.getElementById("displayText");
+                displayText.innerText = "User clicks Dog"; 
+            }		  
 
-            var displayText = document.getElementById("displayText");
-            displayText.innerText = "User clicks Dog"; 
-        }		  
+            function frog() {   
+                var displayField = document.getElementById("displayTextBox"); 
+                displayField.value = "User clicks Frog";   
+                var displayText = document.getElementById("displayText");
+                displayText.innerText = "User clicks Frog"; 
+            }	
 
-        function frog() {   
-            var displayField = document.getElementById("displayTextBox"); 
-            displayField.value = "User clicks Frog";   
-            var displayText = document.getElementById("displayText");
-            displayText.innerText = "User clicks Frog"; 
-        }	
+            function catImage() {      
+			    var image = document.getElementById("displayImage")
+                image.src = "cat.png";
+                image.className = "catImage";
+                displayImageText.innerText = "Source: https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg"; // Show the source of the image
+		    }             
 
-        function catImage() {      
-			var image = document.getElementById("displayImage")
-			image.src = "cat.png";
-			image.className = "catImage";
-            displayImageText.innerText = "Source: https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg"; 
-		}             
+		    function dogImage() {    
+			    var image = document.getElementById("displayImage");
+			    image.src = "dog.png";
+			    image.className = "dogImage";
+                displayImageText.innerText = "Source: https://www.pdinsurance.co.nz/wp-content/uploads/2023/04/Tiny-dogs-with-big-hearts.jpg"; 
+		    }		
 
-		function dogImage() {    
-			var image = document.getElementById("displayImage");
-			image.src = "dog.png";
-			image.className = "dogImage";
-            displayImageText.innerText = "Source: https://www.pdinsurance.co.nz/wp-content/uploads/2023/04/Tiny-dogs-with-big-hearts.jpg"; 
-		}		
+            function frogImage() {    
+			    var image = document.getElementById("displayImage");
+			    image.src = "frog.png";
+			    image.className = "frogImage";
+                displayImageText.innerText = "Source: https://assets.petco.com/petco/image/upload/f_auto,q_auto/green-tree-frog-care-sheet-hero"; 
+		    }	
 
-        function frogImage() {    
-			var image = document.getElementById("displayImage");
-			image.src = "frog.png";
-			image.className = "frogImage";
-            displayImageText.innerText = "Source: https://assets.petco.com/petco/image/upload/f_auto,q_auto/green-tree-frog-care-sheet-hero"; 
-		}	
-
-        function highlight(element) {
-            document.querySelectorAll(".myElement").forEach(btn => btn.classList.remove('highlighted')); // Remove the 'highlighted' class from all elements with the 'myElement' class
-            element.classList.add("highlighted"); // Add the 'highlighted' class to the clicked element
-        }	
+            function highlight(element) {
+                document.querySelectorAll(".myElement").forEach(btn => btn.classList.remove('highlighted')); // Remove the 'highlighted' class from all elements with the 'myElement' class
+                element.classList.add("highlighted"); // Add the 'highlighted' class to the clicked element
+            }	
         </script>
         <style>
-
             h1 {
 			    color: green;
-			    margin-top: 20px; /* This replicates the solution photo and reduces the gaps between each task header */
 		    }
+
+            /* Apply margin-top only to h1 elements that are not the first to clearly represent each question and for extra readability */
+            h1:not(:first-of-type) {
+                margin-top: 60px;
+            }
 
             /* Task 1 below this comment */
 
@@ -104,41 +105,43 @@
             }
     
             #datesTable {
-                border: 1px solid rgb(176, 199, 230);
                 border-collapse: collapse;
                 width: 52%;
             }
     
             #datesTable th {
                 font-family: Helvetica, sans-serif; 
-                font-size: 14px;
                 color: rgb(223, 217, 217); 
                 background-color: rgb(12, 51, 53); 
-                padding: 10px;
-                border: 1px solid rgb(176, 199, 230); 
             }
 
             #datesTable td {
                 font-family: Tahoma, sans-serif; 
-                font-size: 13px; 
-               
-                padding: 10px; 
-                border: 1px solid rgb(176, 199, 230); 
+            }
+
+            /* Apply changes to border style, width and colour as well as font-size and padding to both the th and td */
+            #datesTable th, #datesTable td {
+                font-size: 14px;
+                padding: 10px;
+                border: 1px solid rgb(176, 199, 230);
             }
     
             #datesTable td.activityColumn {
                 border-right: 1px solid #000; 
             }
     
+            /* This targets the last column of the #datesTable */
             #datesTable th:last-child, #datesTable td:last-child {
                 border-right: none; 
             }
     
+            /* Apply a different color and background color to every odd tr in the table */
             #datesTable tr:nth-child(odd) td {
-            background-color: #d68d8d;
-            color: #7c0303;
+                background-color: #d68d8d;
+                color: #7c0303;
             }
-       
+
+            /* Apply a different color and background color to every even tr in the table */
             #datesTable tr:nth-child(even) td {
                 background-color: #caaf85;
                 color: #5e4f15;
@@ -146,7 +149,7 @@
           
             #datesTable ul {
                 list-style-type: square; 
-                margin: 2px; 
+                margin: 2px 0 15px 0;
                 padding-left: 15px; 
             }   
 
@@ -161,10 +164,6 @@
                 display: block; 
                 text-decoration: underline;
                 font-weight: bold;
-            }
-
-            #datesTable a:hover {
-                text-decoration: underline;
             }
 
             /* Task 3 below this comment */ 
@@ -193,16 +192,12 @@
 
             .nameColumn {
                 width: 25%;
-                border-style: ridge;
             }
 
-            .attacksColumn td {
-                width: 75%;
-            }
-            .attacksColumn {
+            .nameColumn, .attacksColumn {
                 border-style: ridge;
             }
-
+            
             td img {
                 display: block;
                 margin: 20px auto 20px; 
@@ -216,11 +211,13 @@
                 color: rgb(54, 49, 49);
             }
 
+            /* Highlight the specific button when you click on it */
             .highlighted {
                 border-color: rgba(79, 122, 202, 0.904);
                 background-color: #f2f2f2; 
             }
 
+            /* This targets the second column of the #attacksTable by using (2) */
             #attacksTable td:nth-child(2) {
                 background-color: rgb(127, 153, 153);
             }
@@ -228,13 +225,25 @@
             #attacksTable td:nth-child(1) {
                 background-color: rgba(233, 167, 167, 0.623); 
             }
+
+            /* Task 4 code below */
+
+            /* Internal CSS for layout */
+            .myElement {
+                display: inline; /* Keep buttons together without extra space */
+            }
+
+            #displayTextBox, #displayText, #displayImage, #displayImageText {
+                display: block;
+                margin: 10px 0; /* Adds vertical spacing between elements */
+            }
         </style>
     </head>
     <body>
         <h1> Task 1 </h1>
 	    <!-- Task 1 code below -->
 
-        <div class="header-section">
+        <div class="header-section"> <!-- Use 'div' to style all of these headers together -->
             <h1 class="header-title">8563585 David Matic</h1>
             <h2 class="header-title">COMP804: Web Security</h2>
             <h3 class="header-title">Assignment 1, due at the end of Week 5</h3>
@@ -251,39 +260,40 @@
             <tr>
                 <td>First day to enrol for re-enrolling (continuing students)</td>              
                 <td>21 Nov 2022</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Orientation</td>              
                 <td>18 Jul 2023</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Lectures Commence (weeks 1-9)</td>           
                 <td>24 Jul - 22 Sep 2023</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Last day to enrol / add subjects yourself</td>            
                 <td>04 Aug 2023</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Last day to enrol / add subjects with Head of Students approval</td>            
                 <td>11 Aug 2023</td>
-              </tr>
-              <tr>
-                <td><b>CENSUS DATE</b>
+            </tr>
+            <tr>
+                <td>
+                    <b>CENSUS DATE</b>
                 <ul>
                     <li>Fees due</li>
                     <li>Last day to withdraw from subject/s without paying for them</li>
                     <li>HECS / FEE HELP debt reporting date</li>
                     <li>Last day to change HECS / FEE HELP billing option</li>
-                    <br>
                 </ul>
-                <a href="https://uowedu.service-now.com/kb?id=kb_article_view&sysparm_article=KB0012659">Learn more about Census date ></a></td>             
+                <a href="https://uowedu.service-now.com/kb?id=kb_article_view&sysparm_article=KB0012659">Learn more about Census date ></a> <!-- Keep the link outside of the 'ul' so that we can style it separately and accordingly -->
+                </td>             
                 <td>31 Aug 2023</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Student Services and Amenities Fees Due</td>             
                 <td>01 Sep 2023</td>
-              </tr>
+            </tr>
         </table>
 
         <h1> Task 3 </h1>
@@ -296,120 +306,171 @@
             </tr>
             <tr>
                 <td>
-                    <div class="centered-text">SQL Injection</div>
-                    <img src="SQL attack.png" width="150">
-                    <a href="https://www.acunetix.com/websitesecurity/sql-injection/">Image Source</a></td>
-                </td>             
+                    <div class="centered-text">SQL Injection</div> <!-- apply this 'div' class to every web attack name -->
+                    <img src="SQL attack.png" width="150"> <!-- Set image width in here -->
+                    <a href="https://www.acunetix.com/websitesecurity/sql-injection/">Image Source</a>
+                </td>
                 <td>
-                    <ul><li>SQL Injection (SQLi) allows attackers to execute malicious SQL commands on a database, bypassing security measures.</li>
+                    <ul> <!-- Create a list, with 'li' as the list elements using bullet points -->
+                        <li>SQL Injection (SQLi) allows attackers to execute malicious SQL commands on a database, bypassing security measures.</li>
                         <li>It can result in unauthorized access, data theft, manipulation, or deletion, and potential compromise of the entire network.</li>
-                        <li>SQLi is a highly dangerous vulnerability, affecting any website or application that uses SQL databases.</li></ul>
-
-                        Source: <a href="https://www.acunetix.com/websitesecurity/sql-injection/">https://www.acunetix.com/websitesecurity/sql-injection/</a></td>
-              </tr>
-              <tr>
+                        <li>SQLi is a highly dangerous vulnerability, affecting any website or application that uses SQL databases.</li>
+                    </ul>
+                    Source: <a href="https://www.acunetix.com/websitesecurity/sql-injection/">https://www.acunetix.com/websitesecurity/sql-injection/</a>
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <div class="centered-text">DDoS attack</div>
                     <img src="DDoS attack.png" width="150">
-                    <a href="https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/ ">Image Source</a></td>        
-                </td>          
-                <td><ul><li>A DDoS attack disrupts a server, service, or network by overwhelming it with a flood of traffic from multiple compromised systems.</li>
-                    <li>These attacks use botnets, networks of infected devices, to send massive amounts of traffic to a target, causing denial of service.</li>
-                    <li>The attack traffic is difficult to distinguish from normal traffic because each bot is a legitimate Internet device.</li></ul>
-                    Source: <a href="https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/">https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Cross-Site Scripting</div>
+                    <a href="https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>A DDoS attack disrupts a server, service, or network by overwhelming it with a flood of traffic from multiple compromised systems.</li>
+                        <li>These attacks use botnets, networks of infected devices, to send massive amounts of traffic to a target, causing denial of service.</li>
+                        <li>The attack traffic is difficult to distinguish from normal traffic because each bot is a legitimate Internet device.</li>
+                    </ul>
+                    Source: <a href="https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/">https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Cross-Site Scripting</div>
                     <img src="xss.png" width="150">
-                    <a href="https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/">Image Source</a></td>
-                </td>            
-                <td><ul><li>Cross site scripting (XSS) injects malicious code into a vulnerable web application, targeting users rather than the application itself.</li>
-                    <li>XSS attacks can compromise user accounts, activate Trojans, modify page content, and reveal session cookies, leading to impersonation and abuse.</li>
-                    <li>There are two types of XSS: stored (persistent) XSS, which injects a script into the application, and reflected XSS, where the script is reflected off the application and activated via a link.</li></ul>
-                    Source: <a href="https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/">https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Phishing</div>
+                    <a href="https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>Cross site scripting (XSS) injects malicious code into a vulnerable web application, targeting users rather than the application itself.</li>
+                        <li>XSS attacks can compromise user accounts, activate Trojans, modify page content, and reveal session cookies, leading to impersonation and abuse.</li>
+                        <li>There are two types of XSS: stored (persistent) XSS, which injects a script into the application, and reflected XSS, where the script is reflected off the application and activated via a link.</li>
+                    </ul>
+                    Source: <a href="https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/">https://www.imperva.com/learn/application-security/cross-site-scripting-xss-attacks/</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Phishing</div>
                     <img src="phishing.png" width="150">
-                    <a href="https://learning.mlytics.com/cyber-attacks/what-is-a-phishing-attack/">Image Source</a></td>
-                </td>     
-                <td><ul><li>Phishing is a scam where attackers impersonate trusted sources through communication like email, phone calls, or SMS to steal confidential information or make it inaccessible.</li>
-                    <li>In a VPS environment, phishing often involves scam emails with links or attachments that lead to malicious software installation or requests for sensitive information, potentially compromising devices and accounts.</li>
-                    <li>Once scammers gain access, they may steal information, money, or use compromised accounts to send further phishing attempts, often while posing as the victim.</li></ul>
-                    Source: <a href="https://ovic.vic.gov.au/privacy/resources-for-organisations/phishing-attacks-and-how-to-protect-against-them/">https://ovic.vic.gov.au/privacy/resources-for-organisations/phishing-attacks-and-how-to-protect-against-them/</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Brute Force Attack</div>
-                    <img src="bruteforceattack.png" width="150">   
-                    <a href="https://www.spiceworks.com/it-security/cyber-risk-management/articles/what-is-brute-force-attack/"><b>Image Source</b></a></td>
-                </td>            
-                <td><ul><li>A brute force attack involves repeatedly guessing usernames and passwords to gain unauthorized access to a system, often using automated tools.</li>
-                    <li>Attackers may use bots and pre-obtained lists of credentials to systematically attempt access, making brute force attacks highly effective.</li>
-                    <li>There are various methods of brute force attacks, including simple, hybrid, dictionary attacks, and more, each with different techniques for guessing or exploiting login information.</li></ul>
-                    Source: <a href="https://www.imperva.com/learn/application-security/brute-force-attack/">https://www.imperva.com/learn/application-security/brute-force-attack/</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Man-in-the-Middle</div>
+                    <a href="https://learning.mlytics.com/cyber-attacks/what-is-a-phishing-attack/">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>Phishing is a scam where attackers impersonate trusted sources through communication like email, phone calls, or SMS to steal confidential information or make it inaccessible.</li>
+                        <li>In a VPS environment, phishing often involves scam emails with links or attachments that lead to malicious software installation or requests for sensitive information, potentially compromising devices and accounts.</li>
+                        <li>Once scammers gain access, they may steal information, money, or use compromised accounts to send further phishing attempts, often while posing as the victim.</li>
+                    </ul>
+                    Source: <a href="https://ovic.vic.gov.au/privacy/resources-for-organisations/phishing-attacks-and-how-to-protect-against-them/">https://ovic.vic.gov.au/privacy/resources-for-organisations/phishing-attacks-and-how-to-protect-against-them/</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Brute Force Attack</div>
+                    <img src="bruteforceattack.png" width="150">
+                    <a href="https://www.spiceworks.com/it-security/cyber-risk-management/articles/what-is-brute-force-attack/"><b>Image Source</b></a>
+                </td>
+                <td>
+                    <ul>
+                        <li>A brute force attack involves repeatedly guessing usernames and passwords to gain unauthorized access to a system, often using automated tools.</li>
+                        <li>Attackers may use bots and pre-obtained lists of credentials to systematically attempt access, making brute force attacks highly effective.</li>
+                        <li>There are various methods of brute force attacks, including simple, hybrid, dictionary attacks, and more, each with different techniques for guessing or exploiting login information.</li>
+                    </ul>
+                    Source: <a href="https://www.imperva.com/learn/application-security/brute-force-attack/">https://www.imperva.com/learn/application-security/brute-force-attack/</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Man-in-the-Middle</div>
                     <img src="mitm.png" width="150">
-                    <a href="https://threatcop.com/blog/man-in-the-middle-attack/">Image Source</a></td>
-                </td>             
-                <td><ul><li>A man-in-the-middle (MITM) attack occurs when an attacker secretly intercepts and potentially alters communication between a user and an application, often to steal sensitive information.</li>
-                    <li>Common targets include users of financial applications, e-commerce sites, and other login-required services, with stolen information used for identity theft, unauthorized transactions, or further attacks.</li>
-                    <li>A MITM attack is like a mailman opening and reading your bank statement before delivering it, making it seem like the communication was never intercepted.</li></ul>
-                    Source: <a href="https://www.imperva.com/learn/application-security/man-in-the-middle-attack-mitm/">https://www.imperva.com/learn/application-security/man-in-the-middle-attack-mitm/</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Session Hijacking</div>
+                    <a href="https://threatcop.com/blog/man-in-the-middle-attack/">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>A man-in-the-middle (MITM) attack occurs when an attacker secretly intercepts and potentially alters communication between a user and an application, often to steal sensitive information.</li>
+                        <li>Common targets include users of financial applications, e-commerce sites, and other login-required services, with stolen information used for identity theft, unauthorized transactions, or further attacks.</li>
+                        <li>A MITM attack is like a mailman opening and reading your bank statement before delivering it, making it seem like the communication was never intercepted.</li>
+                    </ul>
+                    Source: <a href="https://www.imperva.com/learn/application-security/man-in-the-middle-attack-mitm/">https://www.imperva.com/learn/application-security/man-in-the-middle-attack-mitm/</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Session Hijacking</div>
                     <img src="sessionhijacking.png" width="150">
-                    <a href="https://www.geeksforgeeks.org/session-hijacking/">Image Source</a></td>
-                </td>      
-                <td><ul><li>Session Hijacking is an attack that exploits the web session control mechanism by compromising the session token, which is used to identify a user's connection to a web server.</li>
-                    <li>Attackers steal or predict a valid session token to gain unauthorized access, bypassing normal authentication processes.</li>
-                    <li>Common methods for compromising session tokens include predictable tokens, session sniffing, client-side attacks, and man-in-the-middle or man-in-the-browser attacks.</li></ul>
-                    Source: <a href="https://owasp.org/www-community/attacks/Session_hijacking_attack">https://owasp.org/www-community/attacks/Session_hijacking_attack</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Remote Code Execution</div>
+                    <a href="https://www.geeksforgeeks.org/session-hijacking/">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>Session Hijacking is an attack that exploits the web session control mechanism by compromising the session token, which is used to identify a user's connection to a web server.</li>
+                        <li>Attackers steal or predict a valid session token to gain unauthorized access, bypassing normal authentication processes.</li>
+                        <li>Common methods for compromising session tokens include predictable tokens, session sniffing, client-side attacks, and man-in-the-middle or man-in-the-browser attacks.</li>
+                    </ul>
+                    Source: <a href="https://owasp.org/www-community/attacks/Session_hijacking_attack">https://owasp.org/www-community/attacks/Session_hijacking_attack</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Remote Code Execution</div>
                     <img src="rce.png" width="150">
-                    <a href="https://beaglesecurity.com/blog/vulnerability/remote-code-execution.html">Image Source</a></td>
-                </td>      
-                <td><ul><li>Remote Code Execution (RCE) is a cyber-attack where an attacker remotely gains control of a victim's system, allowing them to perform any action, such as deleting data or accessing sensitive information.</li>
-                    <li>RCE attacks exploit vulnerabilities in software, operating systems, or web servers, enabling attackers to inject and execute malicious code on the compromised system.</li>
-                    <li>The impact can be severe, such as a web server being controlled by an attacker, leading to defacement, data theft, or service disruption.</li></ul>
-                    Source: <a href="https://www.aquasec.com/cloud-native-academy/cloud-attacks/remote-code-execution/">https://www.aquasec.com/cloud-native-academy/cloud-attacks/remote-code-execution/</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Cross-Site Request Forgery</div>
+                    <a href="https://beaglesecurity.com/blog/vulnerability/remote-code-execution.html">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>Remote Code Execution (RCE) is a cyber-attack where an attacker remotely gains control of a victim's system, allowing them to perform any action, such as deleting data or accessing sensitive information.</li>
+                        <li>RCE attacks exploit vulnerabilities in software, operating systems, or web servers, enabling attackers to inject and execute malicious code on the compromised system.</li>
+                        <li>The impact can be severe, such as a web server being controlled by an attacker, leading to defacement, data theft, or service disruption.</li>
+                    </ul>
+                    Source: <a href="https://www.aquasec.com/cloud-native-academy/cloud-attacks/remote-code-execution/">https://www.aquasec.com/cloud-native-academy/cloud-attacks/remote-code-execution/</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Cross-Site Request Forgery</div>
                     <img src="csrf.png" width="150">
-                    <a href="https://www.imperva.com/learn/application-security/csrf-cross-site-request-forgery/">Image Source</a></td>
-                </td>      
-                <td><ul><li>Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to submit unwanted requests to a web application where they are already authenticated.</li>
-                    <li>CSRF exploits the trust a web application has in the user's authentication, tricking it into executing actions as the user without their consent.</li>
-                    <li>This attack takes advantage of a web application's inability to distinguish between legitimate user requests and those initiated by an attacker.</li></ul>
-                    Source: <a href="https://www.synopsys.com/glossary/what-is-csrf.html">https://www.synopsys.com/glossary/what-is-csrf.html</a></td>
-                </tr>
-              <tr>
-                <td><div class="centered-text">Clickjacking</div>
+                    <a href="https://www.imperva.com/learn/application-security/csrf-cross-site-request-forgery/">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>Cross-Site Request Forgery (CSRF) is an attack that forces authenticated users to submit unwanted requests to a web application where they are already authenticated.</li>
+                        <li>CSRF exploits the trust a web application has in the user's authentication, tricking it into executing actions as the user without their consent.</li>
+                        <li>This attack takes advantage of a web application's inability to distinguish between legitimate user requests and those initiated by an attacker.</li>
+                    </ul>
+                    Source: <a href="https://www.synopsys.com/glossary/what-is-csrf.html">https://www.synopsys.com/glossary/what-is-csrf.html</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="centered-text">Clickjacking</div>
                     <img src="clickjacking.png" width="150">
-                    <a href="https://www.spiceworks.com/it-security/network-security/articles/what-is-clickjacking/">Image Source</a></td>
-                </td>      
-                <td><ul><li>Clickjacking is an attack where users are tricked into clicking on hidden, malicious elements instead of the intended interface, leading to unintended actions like downloading malware or providing sensitive information.</li>
-                    <li>This attack is possible due to the use of HTML frames or iframes, which allow attackers to overlay a transparent, hidden interface over a legitimate webpage.</li>
-                    <li>Variations of clickjacking, often referred to as UI redressing or UI redress attacks, exploit this technique to manipulate user interactions without their knowledge.</li></ul>
-                    Source: <a href="https://www.kaspersky.com/resource-center/definitions/clickjacking">https://www.kaspersky.com/resource-center/definitions/clickjacking</a></td>
-                </tr>
-        </table>   
+                    <a href="https://www.spiceworks.com/it-security/network-security/articles/what-is-clickjacking/">Image Source</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>Clickjacking is an attack where users are tricked into clicking on hidden, malicious elements instead of the intended interface, leading to unintended actions like downloading malware or providing sensitive information.</li>
+                        <li>This attack is possible due to the use of HTML frames or iframes, which allow attackers to overlay a transparent, hidden interface over a legitimate webpage.</li>
+                        <li>Variations of clickjacking, often referred to as UI redressing or UI redress attacks, exploit this technique to manipulate user interactions without their knowledge.</li>
+                    </ul>
+                    Source: <a href="https://www.kaspersky.com/resource-center/definitions/clickjacking">https://www.kaspersky.com/resource-center/definitions/clickjacking</a>
+                </td>
+            </tr>
+        </table>  
         
         <h1> Task 4 </h1>
 	    <!-- Task 4 code below -->
 
-        <button class="myElement" onclick="cat(); catImage(); highlight(this);">Cat</button>
+        <button class="myElement" onclick="cat(); catImage(); highlight(this);">Cat</button> <!-- Place all of the appropriate methods inside 'onclick' -->
         <button class="myElement" onclick="dog(); dogImage(); highlight(this);">Dog</button>
-	    <button class="myElement" onclick="frog(); frogImage(); highlight(this);">Frog</button><br><br>
-	    <input type="text" id="displayTextBox"/><br><br>
+        <button class="myElement" onclick="frog(); frogImage(); highlight(this);">Frog</button>
 
-        <span id="displayText"></span><br><br>
-        <img id="displayImage"><br>
+        <input type="text" id="displayTextBox"/>
+        <span id="displayText"></span>
+        <img id="displayImage">
         <span id="displayImageText"></span>
+
+        <h1> Task 5 </h1>
+	    <!-- Task 5 code below -->
+
+        <a href="https://github.com/davem97/Assignment-1/raw/main/Task%205.docx" target="_blank">View Task 5 report</a> <!-- Use 'target="blank"' here to ensure the web page does not change on click, but rather opens in a new tab -->
     </body>
 </html>
